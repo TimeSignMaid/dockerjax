@@ -1,0 +1,23 @@
+services:
+  backend:
+    build: ./backend
+    image: maidtsy/backend:latest
+    container_name: ajaxbackend
+    ports:
+      - "5000:5000"
+    networks:
+      - mynetwork 
+
+
+  frontend:
+    build: ./frontend
+    image: maidtsy/frontend:latest
+    container_name: ajaxfrontend
+    ports:
+      - "8080:80"
+    networks:
+      - mynetwork
+      
+networks:
+  mynetwork:
+    driver: bridge
